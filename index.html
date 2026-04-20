@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Task Manager</title>
+
+    <!-- Premium Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #f8fafc;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: #0f172a;
+            color: white;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px;
+        }
+
+        .card {
+            flex: 1;
+            max-width: 260px;
+            padding: 25px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card:nth-child(1) { background: #3b82f6; }
+        .card:nth-child(2) { background: #22c55e; }
+        .card:nth-child(3) { background: #f59e0b; }
+
+        /* MAIN */
+        .main {
+            width: 90%;
+            margin: auto;
+        }
+
+        /* INPUT */
+        .task-input {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .task-input input,
+        .task-input select {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* BUTTON */
+        button {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            background: #6366f1;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+
+        /* FILTER */
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* TASK LIST */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>📚 Task Manager</h2>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Manage Your Tasks Efficiently</h1>
+    <p>Organize your academic life with ease</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="card">
+        <h3 id="totalTasks">0</h3>
+        <p>Total Tasks</p>
+    </div>
+    <div class="card">
+        <h3 id="completedTasks">0</h3>
+        <p>Completed</p>
+    </div>
+    <div class="card">
+        <h3 id="pendingTasks">0</h3>
+        <p>Pending</p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <div class="task-input">
+        <input type="text" id="taskTitle" placeholder="Enter your task...">
+        <input type="date" id="taskDate">
+        
+        <select id="priority">
+            <option value="Low">Low Priority</option>
+            <option value="Medium">Medium Priority</option>
+            <option value="High">High Priority</option>
+        </select>
+
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="filters">
+        <button onclick="filterTasks('all')">All</button>
+        <button onclick="filterTasks('completed')">Completed</button>
+        <button onclick="filterTasks('pending')">Pending</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+</div>
+
+<script src="auth.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
